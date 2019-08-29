@@ -29,11 +29,12 @@ browser.get(url)
 html = browser.page_source
 soup = BeautifulSoup(html, 'lxml')
 
-posts = soup.find_all(class_='chord')
+#posts = soup.find_all(class_='chord')
+chords = soup.find_all(class_='label-wrapper')
 
 data = []
-for post in posts:
-    data.append(post)
+for chord in chords:
+    data.append(chord)
 
 df = pd.DataFrame(data)
 df.to_excel('chords.xlsx')
