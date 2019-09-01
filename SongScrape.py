@@ -35,6 +35,7 @@ chords = soup.find_all(class_='label-wrapper')
 data = []
 for chord in chords:
     data.append(chord)
+print(type(chord))
 
 df = pd.DataFrame(data)
 df.to_excel('chords.xlsx')
