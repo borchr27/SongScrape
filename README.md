@@ -1,2 +1,2 @@
 # SongScrape
-Scrape chords from popular music site to create pdf of chords
+A work in progress to scrape chords from a popular music site (chordify) then assembly and create pdf printout of lyrics and chords
