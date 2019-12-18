@@ -32,6 +32,7 @@ soup = BeautifulSoup(html, 'lxml')
 #posts = soup.find_all(class_='chord')
 chords = soup.find_all(class_='label-wrapper')
 
+
 data = []
 for chord in chords:
     data.append(chord)
