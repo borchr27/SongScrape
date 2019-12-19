@@ -7,10 +7,6 @@
 # pandas v 0.23.4
 # urllib3 v 1.23
 
-"""
-This program is used to scrape craigslist for a certain item with the specified parameters. In this case it is used to monitor cragislist for a Toyota in Grand Rapids MI for less than $7000. The program opens a browser directs itself to the inteded site, scrapes the data, then throws the Date, Price, Title, and Link into an excel file. 
-
-"""
 from datetime import date
 from selenium import webdriver
 from selenium.webdriver.support.ui import WebDriverWait
@@ -53,7 +49,6 @@ soup = BeautifulSoup(html, 'lxml')
 
 #posts = soup.find_all(class_='chord')
 chords = soup.find_all(class_='label-wrapper')
-
 
 data = []
 for chord in chords:
