@@ -40,19 +40,25 @@ def findOccurrences(s, ch):
     return [i for i, letter in enumerate(s) if letter == ch]
 
 
-url = f"https://chordify.net/chords/handmade-moments-where-do-you-find-the-time-official-music-video-handmade-moments"
+def main(linkToSite):
+    url = linkToSite
 
-browser = webdriver.Chrome()
-browser.get(url)
-html = browser.page_source
-soup = BeautifulSoup(html, 'lxml')
+    browser = webdriver.Chrome()
+    browser.get(url)
+    html = browser.page_source
+    soup = BeautifulSoup(html, 'lxml')
 
-#posts = soup.find_all(class_='chord')
-chords = soup.find_all(class_='label-wrapper')
+    #posts = soup.find_all(class_='chord')
+    chords = soup.find_all(class_='label-wrapper')
 
-data = []
-for chord in chords:
-    data.append(getChord(str(chord)))
+    data = []
+    for chord in chords:
+        data.append(getChord(str(chord)))
 
-df = pd.DataFrame(data)
-df.to_excel('chords.xlsx')
+    df = pd.DataFrame(data)
+    df.to_excel('chords.xlsx')
+    browser.close()
+
+
+chordifySite = f"https://chordify.net/chords/open-up-your-heart-handmade-moments-topic"
+main(chordifySite)
