@@ -17,6 +17,7 @@ import pandas as pd
 import requests 
 from bs4 import BeautifulSoup
 import urllib.request
+import numpy as np
 
 
 ############ FUNCTIONS #############
@@ -33,7 +34,7 @@ def getChord(htmlInfo):
         endSnip = quoteArray[3]
         chord = htmlInfo[startSnip+1:endSnip]
     else:
-        chord = '  '
+        chord = np.NaN
     return chord
     
 def findOccurrences(s, ch):
@@ -55,7 +56,7 @@ def main(linkToSite):
     for chord in chords:
         data.append(getChord(str(chord)))
 
-    df = pd.DataFrame(data)
+    df = pd.DataFrame(data, columns=['Chords']).dropna()
     df.to_excel('chords.xlsx')
     browser.close()
 
