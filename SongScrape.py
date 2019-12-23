@@ -18,6 +18,7 @@ import requests
 from bs4 import BeautifulSoup
 import urllib.request
 import numpy as np
+import time
 
 
 ############ FUNCTIONS #############
@@ -33,6 +34,10 @@ def getChord(htmlInfo):
         startSnip = dashArray[2]
         endSnip = quoteArray[3]
         chord = htmlInfo[startSnip+1:endSnip]
+        chord = chord.replace('min', 'm')
+        chord = chord.replace('maj','')
+        chord = chord.replace('s', '#')
+        chord = chord.replace('_', '')
     else:
         chord = np.NaN
     return chord
@@ -60,7 +65,31 @@ def main(linkToSite):
     df.to_excel('chords.xlsx')
     browser.close()
 
+def displayOutput():
+    # Time.sleep value = tempo
+    excel_file = 'chords.xlsx'
+    df = pd.read_excel(excel_file)
+    tempo = .5
+    songLen = len(df['Chords'][:])
+    i = 0
+    y = '\t'
+    while (i < songLen):
+        j = 0
+        while j < 8:
+            print(df['Chords'][i+j] + '\t', end = ' ')
+            j+=1
+        print("\n", end = ' ')
+        for x in range(0,8):
+            if x == 0: print('| ', end = '\r')
+            elif x == 8: 
+                print(y*(x) + '  |', end='\r')
+            else: print(y*(x) + '  |', end='\r')
+            time.sleep(tempo)
+        i+=8
 
-chordifySite = f"https://chordify.net/chords/open-up-your-heart-handmade-moments-topic"
-#chordifySite = f"https://chordify.net/chords/rescue-by-alysha-brilla-on-ctv-live-regina-alysha-brilla"
-main(chordifySite)
+
+#chordifySite = f"https://chordify.net/chords/open-up-your-heart-handmade-moments-topic"
+chordifySite = f"https://chordify.net/chords/rescue-by-alysha-brilla-on-ctv-live-regina-alysha-brilla"
+#main(chordifySite)
+
+displayOutput()
