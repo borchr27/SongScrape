@@ -38,6 +38,7 @@ def getChord(htmlInfo):
         chord = chord.replace('maj','')
         chord = chord.replace('s', '#')
         chord = chord.replace('_', '')
+        chord = chord.replace('re#t', 'rest')
     else:
         chord = np.NaN
     return chord
@@ -46,9 +47,7 @@ def findOccurrences(s, ch):
     return [i for i, letter in enumerate(s) if letter == ch]
 
 
-def main(linkToSite):
-    url = linkToSite
-
+def main(url):
     browser = webdriver.Chrome()
     browser.get(url)
     html = browser.page_source
@@ -90,6 +89,5 @@ def displayOutput():
 
 #chordifySite = f"https://chordify.net/chords/open-up-your-heart-handmade-moments-topic"
 chordifySite = f"https://chordify.net/chords/rescue-by-alysha-brilla-on-ctv-live-regina-alysha-brilla"
-#main(chordifySite)
-
+main(chordifySite)
 displayOutput()
