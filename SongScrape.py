@@ -89,5 +89,5 @@ def displayOutput():
 
 #chordifySite = f"https://chordify.net/chords/open-up-your-heart-handmade-moments-topic"
 chordifySite = f"https://chordify.net/chords/rescue-by-alysha-brilla-on-ctv-live-regina-alysha-brilla"
-main(chordifySite)
+#main(chordifySite)
 displayOutput()

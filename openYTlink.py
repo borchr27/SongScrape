@@ -15,6 +15,12 @@ browser.get(url)
 html = browser.page_source
 soup = BeautifulSoup(html, 'lxml')
 
+iframexx = soup.find_all('iframe')
+for iframe in iframexx:
+    response = urllib.urlopen(iframe.attrs['src'])
+    iframe_soup = BeautifulSoup(response)
 #posts = soup.find_all(class_='chord')
-chords = soup.find_all('a')
+chords = soup.find_all(id_='embedWrapper')
 print(chords)
+
+browser.close()
