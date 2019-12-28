@@ -1,7 +1,4 @@
-# Based off of a LucidProgramming Tutorial
 # Environment: anaconda cloud borchr27/songscrape
-# https://www.youtube.com/watch?v=x5o0XFozYnE
-# Created/Modified by AV 4/16/19
 # bs4 v 4.6.3
 # selenium v 3.141.0
 # pandas v 0.23.4

@@ -14,13 +14,9 @@ browser = webdriver.Chrome()
 browser.get(url)
 html = browser.page_source
 soup = BeautifulSoup(html, 'lxml')
+soup1 = soup.find_by_id('song-page')
 
-iframexx = soup.find_all('iframe')
-for iframe in iframexx:
-    response = urllib.urlopen(iframe.attrs['src'])
-    iframe_soup = BeautifulSoup(response)
-#posts = soup.find_all(class_='chord')
-chords = soup.find_all(id_='embedWrapper')
-print(chords)
+print(soup1)
+
 
 browser.close()
