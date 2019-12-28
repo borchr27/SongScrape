@@ -14,7 +14,7 @@ browser = webdriver.Chrome()
 browser.get(url)
 html = browser.page_source
 soup = BeautifulSoup(html, 'lxml')
-soup1 = soup.find_by_id('song-page')
+soup1 = soup.find_all(id_="song-page")
 
 print(soup1)
 
