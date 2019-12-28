@@ -52,6 +52,7 @@ def main(url):
 
     #posts = soup.find_all(class_='chord')
     chords = soup.find_all(class_='label-wrapper')
+    otherstuff = soup.find_all('data-stream')
 
     data = []
     for chord in chords:
@@ -59,6 +60,7 @@ def main(url):
 
     df = pd.DataFrame(data, columns=['Chords']).dropna()
     df.to_excel('chords.xlsx')
+    print(otherstuff)
     browser.close()
 
 def displayOutput():
@@ -85,6 +87,6 @@ def displayOutput():
 
 
 #chordifySite = f"https://chordify.net/chords/open-up-your-heart-handmade-moments-topic"
-chordifySite = f"https://chordify.net/chords/rescue-by-alysha-brilla-on-ctv-live-regina-alysha-brilla"
-#main(chordifySite)
+chordifySite = f"https://chordify.net/chords/handmade-moments-all-i-wanted-kvnf-field-sessions"
+main(chordifySite)
 displayOutput()
