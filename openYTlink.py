@@ -6,7 +6,8 @@ from selenium.webdriver.common.by import By
 from selenium.common.exceptions import TimeoutException
 import pandas as pd
 import requests 
-#import lxml.html
+import lxml.html
+import re
 from bs4 import BeautifulSoup
 import urllib.request
 
@@ -17,14 +18,14 @@ browser = webdriver.Chrome()
 browser.get(url)
 html = browser.page_source
 soup = BeautifulSoup(html, 'lxml')
-soup1 = str(html.find_all('aside'))
-soup2 = soup.xpath('//div[id="data-stream"]')[0]
+
+tag = soup.find_all('a', attrs = {'href': re.compile('^https://www.youtube.com')})
+
 
 #file2write = open("SoupData",'w')
 #file2write.write(soup1)
 #file2write.close()
-
-print(soup2)
+print(tag)
 
 
 browser.close()
