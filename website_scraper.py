@@ -9,7 +9,7 @@ import pandas as pd
 import requests 
 from bs4 import BeautifulSoup
 
-import create_song_data
+from create_song_data import create_song_data
 
 
 class website_scraper:

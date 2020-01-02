@@ -1,8 +1,9 @@
-from create_song_data import create_song_data
+from website_scraper import website_scraper
+
+def main():
+    url = input('Please paste the chordify URL here: ')
+    website_scraper(url)
 
 if __name__ == '__main__':
     main()
-
-def main():
-    create_song_data('<div class="label-wrapper"><span class="chord-label label-A_maj"></span><span class="bass-label"></span></div>')    
 
