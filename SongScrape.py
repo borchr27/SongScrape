@@ -5,6 +5,7 @@
 # urllib3 v 1.23
 
 from datetime import date
+import time
 from selenium import webdriver
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -13,13 +14,15 @@ from selenium.common.exceptions import TimeoutException
 import pandas as pd
 import requests 
 from bs4 import BeautifulSoup
-import urllib.request
+#import urllib.request
 import numpy as np
-import time
 
+
+
+## Add pause functionality, listen to song functionality, and change speed funtionality
 
 ############ FUNCTIONS #############
-
+"""
 def getChord(htmlInfo):
     # Takes in info shown below and returns chord i.e "A_maj"
     # '<div class="label-wrapper"><span class="chord-label label-A_maj"></span><span class="bass-label"></span></div>'
@@ -43,7 +46,6 @@ def getChord(htmlInfo):
 def findOccurrences(s, ch):
     return [i for i, letter in enumerate(s) if letter == ch]
 
-
 def main(url):
     browser = webdriver.Chrome()
     browser.get(url)
@@ -51,17 +53,19 @@ def main(url):
     soup = BeautifulSoup(html, 'lxml')
 
     #posts = soup.find_all(class_='chord')
+    #otherstuff = soup.find_all('data-stream')
     chords = soup.find_all(class_='label-wrapper')
-    otherstuff = soup.find_all('data-stream')
-
+    
     data = []
     for chord in chords:
         data.append(getChord(str(chord)))
 
     df = pd.DataFrame(data, columns=['Chords']).dropna()
     df.to_excel('chords.xlsx')
-    print(otherstuff)
+    #print(otherstuff)
     browser.close()
+
+    """
 
 def displayOutput():
     # Time.sleep value = tempo
