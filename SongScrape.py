@@ -19,7 +19,7 @@ import numpy as np
 
 
 
-## Add pause functionality, listen to song functionality, and change speed funtionality
+## Add pause functionality, listen to song functionality, change speed funtionality, and Phantom.js functionality
 
 ############ FUNCTIONS #############
 """
@@ -65,9 +65,9 @@ def main(url):
     #print(otherstuff)
     browser.close()
 
-    """
 
-def displayOutput():
+
+def display_output():
     # Time.sleep value = tempo
     excel_file = 'chords.xlsx'
     df = pd.read_excel(excel_file)
@@ -93,4 +93,5 @@ def displayOutput():
 #chordifySite = f"https://chordify.net/chords/open-up-your-heart-handmade-moments-topic"
 chordifySite = f"https://chordify.net/chords/handmade-moments-all-i-wanted-kvnf-field-sessions"
 main(chordifySite)
-displayOutput()
+display_output()
+"""

@@ -9,16 +9,22 @@ import pandas as pd
 import requests 
 from bs4 import BeautifulSoup
 
-from create_song_data import create_song_data
+from CreateSongData import CreateSongData
 
 
-class website_scraper:
-    def init(self, chordifyUrl):
+class WebsiteScraper:
+    """ 
+    Invokes a chrome browser and using selenium creates the soup object
+    then searches soup for the 'label-wrapper' to find all the data for chords
+    then iterates thru that data and scrubs it with the CreateSongData class
+    so we are left with just the raw chord, then code outputs this to an excel
+    """
+    def __init__(self, chordifyUrl):
         self.chordifyUrl = chordifyUrl
 
-    def main(self, chordifyUrl):
+    def website_scraper(self):
         browser = webdriver.Chrome()
-        browser.get(chordifyUrl)
+        browser.get(self.chordifyUrl)
         html = browser.page_source
         soup = BeautifulSoup(html, 'lxml')
 
@@ -28,7 +34,8 @@ class website_scraper:
         
         data = []
         for chord in chords:
-            data.append(create_song_data(str(chord)))
+            chord_data = CreateSongData(str(chord))
+            data.append(chord_data.get_chord())
 
         df = pd.DataFrame(data, columns=['Chords']).dropna()
         df.to_excel('chords.xlsx')
