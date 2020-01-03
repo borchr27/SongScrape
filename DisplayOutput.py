@@ -13,15 +13,15 @@ class DisplayOutput:
     def display_output(self):
         # Time.sleep value = tempo
         excel_file = 'chords.xlsx'
-        df = pd.read_excel(excel_file)
+        data_frame = pd.read_excel(excel_file)
         tempo = .5
-        songLen = len(df['Chords'][:])
+        data_frame_length = len(data_frame['Chords'][:])
         i = 0
         y = '\t'
-        while (i < songLen):
+        while (i < data_frame_length):
             j = 0
             while j < 8:
-                print(df['Chords'][i+j] + '\t', end = ' ')
+                print(data_frame['Chords'][i+j] + '\t', end = ' ')
                 j+=1
             print("\n", end = ' ')
             for x in range(0,8):

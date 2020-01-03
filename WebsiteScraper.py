@@ -28,8 +28,6 @@ class WebsiteScraper:
         html = browser.page_source
         soup = BeautifulSoup(html, 'lxml')
 
-        #posts = soup.find_all(class_='chord')
-        #otherstuff = soup.find_all('data-stream')
         chords = soup.find_all(class_='label-wrapper')
         
         data = []
@@ -39,5 +37,4 @@ class WebsiteScraper:
 
         df = pd.DataFrame(data, columns=['Chords']).dropna()
         df.to_excel('chords.xlsx')
-        #print(otherstuff)
         browser.close()
