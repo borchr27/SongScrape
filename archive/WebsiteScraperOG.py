@@ -21,15 +21,14 @@ class WebsiteScraper:
     """
     def __init__(self, chordifyUrl):
         self.chordifyUrl = chordifyUrl
-        self.soup = None
 
     def website_scraper(self):
         browser = webdriver.Chrome()
         browser.get(self.chordifyUrl)
         html = browser.page_source
-        self.soup = BeautifulSoup(html, 'lxml')
+        soup = BeautifulSoup(html, 'lxml')
 
-        chords = self.soup.find_all(class_='label-wrapper')
+        chords = soup.find_all(class_='label-wrapper')
         
         data = []
         for chord in chords:
@@ -39,7 +38,3 @@ class WebsiteScraper:
         df = pd.DataFrame(data, columns=['Chords']).dropna()
         df.to_excel('chords.xlsx')
         browser.close()
-
-    def youtube_link(self):
-        tag = self.soup.find_all('a', attrs = {'href': re.compile('^https://www.youtube.com')})
-        return tag
