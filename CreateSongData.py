@@ -1,4 +1,5 @@
 import numpy as np
+from FindCharLoc import FindCharLoc
 
 class CreateSongData:
     """
@@ -12,9 +13,10 @@ class CreateSongData:
     def get_chord(self):
         # Takes in info shown below and returns chord i.e "A_maj"
         # '<div class="label-wrapper"><span class="chord-label label-A_maj"></span><span class="bass-label"></span></div>'
+        fcl = FindCharLoc()
         if len(self.single_chord_data) > 100 and len(self.single_chord_data) < 130:
-            dash_array = self.find_occurrences(self.single_chord_data, '-')
-            quote_array = self.find_occurrences(self.single_chord_data, '"')
+            dash_array = fcl.find_char_loc(self.single_chord_data, '-')
+            quote_array = fcl.find_char_loc(self.single_chord_data, '"')
             # Finds the third instance of the dash and gives us the first coordinate to snip the chord from the string
             startSnip = dash_array[2]
             # Finds the fourth instance of quotes and gives us the last coordinate to snip the chord from the string
@@ -29,8 +31,8 @@ class CreateSongData:
         else:
             chord = np.NaN
         return chord
-
+"""
     def find_occurrences(self, string, char):
         # Takes website string data with chord and returns an array of the position of certain charaacters within the string
-        # Then we use these coordinates to grab the chord
         return [i for i, letter in enumerate(string) if letter == char]
+"""

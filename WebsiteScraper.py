@@ -10,7 +10,7 @@ import requests
 from bs4 import BeautifulSoup
 import re
 from CreateSongData import CreateSongData
-
+from FindCharLoc import FindCharLoc
 
 class WebsiteScraper:
     """ 
@@ -40,12 +40,15 @@ class WebsiteScraper:
         df.to_excel('chords.xlsx')
         browser.close()
 
-"""
     def youtube_link(self):
-        # # [<a href="https://www.youtube.com/watch?v=LKrnR3aJKQA" rel="nofollow" target="_blank">Explainer Video</a>]
+        # [<a href="https://www.youtube.com/watch?v=LKrnR3aJKQA" rel="nofollow" target="_blank">Explainer Video</a>]
+        fcl = FindCharLoc()
         tag = self.soup.find_all('a', attrs = {'href': re.compile('^https://www.youtube.com')})
-        quote_array = self.find_occurrences(self.single_chord_data, '"')
+        quote_array = fcl.find_char_loc(str(tag[0]), '"')
+        print(quote_array)
         start_snip = quote_array[0]
         end_snip = quote_array[1]
+        tag = str(tag[0])
         tag = tag[start_snip+1:end_snip]
         return tag
+

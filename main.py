@@ -1,3 +1,9 @@
+# Environment: anaconda cloud borchr27/songscrape
+# bs4 v 4.6.3
+# selenium v 3.141.0
+# pandas v 0.23.4
+# urllib3 v 1.23
+
 from WebsiteScraper import WebsiteScraper
 from DisplayOutput import DisplayOutput
 
@@ -22,3 +28,5 @@ def notes():
     # Classes: https://www.youtube.com/watch?v=m6hhUBXcA-E
     # Classes Cont: https://www.youtube.com/watch?v=apACNr7DC_s
     # Init / Name Method: https://www.youtube.com/watch?v=WIP3-woodlU
+    # https://docs.quantifiedcode.com/python-anti-patterns/correctness/method_has_no_argument.html
+    # https://www.python.org/dev/peps/pep-0008/#function-and-method-arguments
