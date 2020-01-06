@@ -7,6 +7,7 @@ def main():
     song_data.website_scraper()
     # Gets the youtube link for the song you are playing
     yt_link = song_data.youtube_link()
+    print(yt_link)
 
     output_to_terminal = DisplayOutput()
     output_to_terminal.display_output()
