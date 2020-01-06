@@ -30,3 +30,4 @@ def notes():
     # Init / Name Method: https://www.youtube.com/watch?v=WIP3-woodlU
     # https://docs.quantifiedcode.com/python-anti-patterns/correctness/method_has_no_argument.html
     # https://www.python.org/dev/peps/pep-0008/#function-and-method-arguments
+    # https://stackoverflow.com/questions/7670415/python-3-sharing-variables-between-methods-in-a-class
