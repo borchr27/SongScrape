@@ -1,8 +1,6 @@
 from datetime import date
 import time
 from selenium import webdriver
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 from selenium.common.exceptions import TimeoutException
 import pandas as pd
@@ -26,6 +24,7 @@ class WebsiteScraper:
     def website_scraper(self):
         browser = webdriver.Chrome()
         browser.get(self.chordifyUrl)
+        time.sleep(3)
         html = browser.page_source
         self.soup = BeautifulSoup(html, 'lxml')
 
@@ -43,12 +42,12 @@ class WebsiteScraper:
     def youtube_link(self):
         # [<a href="https://www.youtube.com/watch?v=LKrnR3aJKQA" rel="nofollow" target="_blank">Explainer Video</a>]
         fcl = FindCharLoc()
-        tag = self.soup.find_all('a', attrs = {'href': re.compile('^https://www.youtube.com')})
+        tag = self.soup.find_all('div', attrs = {'data-stream': re.compile('https://www.youtube.com/')} )
+        #tag = requests.get(self.soup.find('iframe'))
+        #tag = self.soup.find_all('a', attrs = {'href': re.compile('^https://www.youtube.com')} )
         quote_array = fcl.find_char_loc(str(tag[0]), '"')
-        start_snip = quote_array[0]
-        end_snip = quote_array[1]
+        start_snip = quote_array[8]
+        end_snip = quote_array[9]
         tag = str(tag[0])
         tag = tag[start_snip+1:end_snip]
-        print(tag)
         return tag
-
