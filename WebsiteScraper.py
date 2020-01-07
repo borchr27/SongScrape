@@ -45,10 +45,10 @@ class WebsiteScraper:
         fcl = FindCharLoc()
         tag = self.soup.find_all('a', attrs = {'href': re.compile('^https://www.youtube.com')})
         quote_array = fcl.find_char_loc(str(tag[0]), '"')
-        print(quote_array)
         start_snip = quote_array[0]
         end_snip = quote_array[1]
         tag = str(tag[0])
         tag = tag[start_snip+1:end_snip]
+        print(tag)
         return tag
 
