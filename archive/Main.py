@@ -8,7 +8,8 @@ from DisplayOutput import DisplayOutput
 from PlayLink import PlayLink
 
 def main():
-    url = input('Enter a chordify URL: \n')
+    # small change
+    url = input('Paste link here: ')
     #url = 'https://chordify.net/chords/the-devil-makes-three-old-number-7-luis-castro'
     new_scrape = WebsiteScraper(url)
     new_scrape.website_scraper()
