@@ -1,5 +1,3 @@
-from datetime import date
-import time
 from selenium import webdriver
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -9,6 +7,9 @@ import pandas as pd
 import requests 
 from bs4 import BeautifulSoup
 import re
+from selenium.webdriver.chrome.options import Options
+from datetime import date
+import time
 
 class PlayLink:
     """
@@ -20,6 +21,8 @@ class PlayLink:
     def play_link(self, link):
         browser = webdriver.Chrome()
         browser.get(link)
-        time.sleep(240)
+        time.sleep(10)
+        #chrome_options = Options()
+        #chrome_options.add_experimental_option("detach", True)
         browser.close()
 
