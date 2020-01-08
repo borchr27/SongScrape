@@ -3,25 +3,33 @@
 # selenium v 3.141.0
 # pandas v 0.23.4
 # urllib3 v 1.23
+import keyboard
+import threading
+import sys
 from WebsiteScraper import WebsiteScraper
 from DisplayOutput import DisplayOutput
 from PlayLink import PlayLink
 
 def main():
     #url = input('Enter a chordify URL: \n')
-    url = 'https://chordify.net/chords/handmade-moments-all-i-wanted-kvnf-field-sessions'
-    new_scrape = WebsiteScraper(url)
-    new_scrape.website_scraper()
+    #url = 'https://chordify.net/chords/handmade-moments-all-i-wanted-kvnf-field-sessions'
+    #new_scrape = WebsiteScraper(url)
+    #new_scrape.website_scraper()
     
     # Gets the youtube link for the song you are playing (CURRENTLY NOT GRABBING CORRECT LINK)
-    new_youtube_link = new_scrape.youtube_link()
+    #new_youtube_link = new_scrape.youtube_link()
     # Opens youtube link in a browser window 
-    new_play_link = PlayLink()
-    new_play_link.play_link(new_youtube_link)
+    #new_play_link = PlayLink()
+    #new_play_link.play_link(new_youtube_link)
     
     # Plays the chords in the console window
     new_display = DisplayOutput()
     new_display.display_output()
+
+# Press ESC to exit code
+my_thread = threading.Thread(target = main, daemon=True).start()
+keyboard.wait("esc")
+sys.exit()
 
 if __name__ == '__main__':
     main()
