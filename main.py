@@ -12,9 +12,9 @@ from PlayLink import PlayLink
 
 def main():
     #url = input('Enter a chordify URL: \n')
-    #url = 'https://chordify.net/chords/handmade-moments-all-i-wanted-kvnf-field-sessions'
-    #new_scrape = WebsiteScraper(url)
-    #new_scrape.website_scraper()
+    url = 'https://chordify.net/chords/handmade-moments-all-i-wanted-kvnf-field-sessions'
+    new_scrape = WebsiteScraper(url)
+    new_scrape.website_scraper()
     
     # Gets the youtube link for the song you are playing (CURRENTLY NOT GRABBING CORRECT LINK)
     #new_youtube_link = new_scrape.youtube_link()
@@ -44,3 +44,4 @@ def notes():
     # https://docs.quantifiedcode.com/python-anti-patterns/correctness/method_has_no_argument.html
     # https://www.python.org/dev/peps/pep-0008/#function-and-method-arguments
     # https://stackoverflow.com/questions/7670415/python-3-sharing-variables-between-methods-in-a-class
+    # https://stackoverflow.com/questions/56622170/how-to-use-the-esc-key-to-end-the-program-at-any-point-go-back-to-previous-men
