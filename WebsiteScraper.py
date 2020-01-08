@@ -3,6 +3,7 @@ import time
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.common.exceptions import TimeoutException
+from selenium.webdriver.chrome.options import Options
 import pandas as pd
 import requests 
 from bs4 import BeautifulSoup
@@ -22,7 +23,10 @@ class WebsiteScraper:
         self.soup = None
 
     def website_scraper(self):
-        browser = webdriver.Chrome()
+        options = webdriver.ChromeOptions()
+        options.add_argument('--ignore-certificate-errors-spki-list')
+        options.add_argument('--ignore-ssl-errors')
+        browser = webdriver.Chrome(chrome_options=options)
         browser.get(self.chordifyUrl)
         time.sleep(3)
         html = browser.page_source

@@ -13,11 +13,11 @@ def main():
     new_scrape = WebsiteScraper(url)
     new_scrape.website_scraper()
     # Gets the youtube link for the song you are playing (CURRENTLY NOT GRABBING CORRECT LINK)
-    new_youtube_link = new_scrape.youtube_link()
+    # new_youtube_link = new_scrape.youtube_link()
     # Opens youtube link in a browser window 
-    print(new_youtube_link)
-    #new_play_link = PlayLink()
-    #new_play_link.play_link(new_youtube_link)
+    # print(new_youtube_link)
+    # new_play_link = PlayLink()
+    # new_play_link.play_link(new_youtube_link)
 
     # Plays the chords in the console window
     new_display = DisplayOutput()
