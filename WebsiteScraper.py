@@ -24,11 +24,12 @@ class WebsiteScraper:
 
     def website_scraper(self):
         options = webdriver.ChromeOptions()
+        options.add_experimental_option('excludeSwitches', ['enable-logging'])
         options.add_argument('--ignore-certificate-errors-spki-list')
         options.add_argument('--ignore-ssl-errors')
         browser = webdriver.Chrome(chrome_options=options)
         browser.get(self.chordifyUrl)
-        time.sleep(3)
+        #time.sleep(3)
         html = browser.page_source
         self.soup = BeautifulSoup(html, 'lxml')
 

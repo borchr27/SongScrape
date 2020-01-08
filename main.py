@@ -9,9 +9,10 @@ from PlayLink import PlayLink
 
 def main():
     #url = input('Enter a chordify URL: \n')
-    url = 'https://chordify.net/chords/devil-makes-three-ten-feet-tall-ashleymartins21'
+    url = 'https://chordify.net/chords/sara-bareilles-love-song-sarabareillesvevo'
     new_scrape = WebsiteScraper(url)
     new_scrape.website_scraper()
+    
     # Gets the youtube link for the song you are playing (CURRENTLY NOT GRABBING CORRECT LINK)
     # new_youtube_link = new_scrape.youtube_link()
     # Opens youtube link in a browser window 
