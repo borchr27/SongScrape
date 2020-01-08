@@ -8,15 +8,16 @@ from DisplayOutput import DisplayOutput
 from PlayLink import PlayLink
 
 def main():
-    url = input('Enter a chordify URL: \n')
-    #url = 'https://chordify.net/chords/the-devil-makes-three-old-number-7-luis-castro'
+    #url = input('Enter a chordify URL: \n')
+    url = 'https://chordify.net/chords/devil-makes-three-ten-feet-tall-ashleymartins21'
     new_scrape = WebsiteScraper(url)
     new_scrape.website_scraper()
     # Gets the youtube link for the song you are playing (CURRENTLY NOT GRABBING CORRECT LINK)
     new_youtube_link = new_scrape.youtube_link()
     # Opens youtube link in a browser window 
-    new_play_link = PlayLink()
-    new_play_link.play_link(new_youtube_link)
+    print(new_youtube_link)
+    #new_play_link = PlayLink()
+    #new_play_link.play_link(new_youtube_link)
 
     # Plays the chords in the console window
     new_display = DisplayOutput()
