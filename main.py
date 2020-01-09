@@ -8,20 +8,17 @@ import threading
 import sys
 from WebsiteScraper import WebsiteScraper
 from DisplayOutput import DisplayOutput
-from PlayLink import PlayLink
 
 def main():
     #url = input('Enter a chordify URL: \n')
-    url = 'https://chordify.net/chords/handmade-moments-all-i-wanted-kvnf-field-sessions'
+    url = 'https://chordify.net/chords/buffalo-springfield-for-what-its-worth-buttholesurferss'
     new_scrape = WebsiteScraper(url)
     new_scrape.website_scraper()
-    
+
     # Gets the youtube link for the song you are playing (CURRENTLY NOT GRABBING CORRECT LINK)
-    #new_youtube_link = new_scrape.youtube_link()
-    # Opens youtube link in a browser window 
-    #new_play_link = PlayLink()
-    #new_play_link.play_link(new_youtube_link)
-    
+    new_youtube_link = new_scrape.youtube_link()
+    print(new_youtube_link)
+
     # Plays the chords in the console window
     new_display = DisplayOutput()
     new_display.display_output()

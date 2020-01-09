@@ -21,9 +21,4 @@ class PlayLink:
     def play_link(self, link):
         browser = webdriver.Chrome()
         browser.get(link)
-        #time.sleep(10)
-        browser.close()
-        #chrome_options = Options()
-        #chrome_options.add_experimental_option("detach", True)
-        
 
