@@ -1,20 +1,20 @@
 import pandas as pd
-from datetime import date
-from datetime import time
+import time
+import threading
 
-class DisplayOutput:
+class DisplayOutput(threading.Thread):
     """
     Takes the chords from the excel file and ouputs two measures (8 chords)
     then the class moves the vertical bar under the notes at a certain tempo
     """
     def __init__(self):
-        pass
+        super(DisplayOutput, self).__init__()
 
     def display_output(self):
         # Time.sleep value = tempo
         excel_file = 'chords.xlsx'
         data_frame = pd.read_excel(excel_file)
-        tempo = .25
+        tempo = .5
         data_frame_length = len(data_frame['Chords'][:])
         i = 0
         y = '\t'
