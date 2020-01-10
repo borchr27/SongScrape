@@ -23,36 +23,31 @@ class WebsiteScraper:
         self.soup = None
 
     def website_scraper(self):
+        # First block gets chord data, second block gets song youtube link
         options = webdriver.ChromeOptions()
-        options.add_experimental_option('excludeSwitches', ['enable-logging'])
-        options.add_argument('--ignore-certificate-errors-spki-list')
-        options.add_argument('--ignore-ssl-errors')
-        browser = webdriver.Chrome(chrome_options=options)
+        browser = webdriver.Chrome(options=options)
         browser.get(self.chordifyUrl)
-        #time.sleep(3)
         html = browser.page_source
         self.soup = BeautifulSoup(html, 'lxml')
-
         chords = self.soup.find_all(class_='label-wrapper')
-        
         data = []
         for chord in chords:
             chord_data = CreateSongData(str(chord))
             data.append(chord_data.get_chord())
-
         df = pd.DataFrame(data, columns=['Chords']).dropna()
         df.to_excel('chords.xlsx')
         browser.close()
 
-    def youtube_link(self):
         # [<a href="https://www.youtube.com/watch?v=LKrnR3aJKQA" rel="nofollow" target="_blank">Explainer Video</a>]
         fcl = FindCharLoc()
         tag = self.soup.find_all('div', attrs = {'data-stream': re.compile('https://www.youtube.com/')} )
-        #tag = requests.get(self.soup.find('iframe'))
-        #tag = self.soup.find_all('a', attrs = {'href': re.compile('^https://www.youtube.com')} )
+        #tag = requests.get(soup.find('iframe'))
+        #tag = soup.find_all('a', attrs = {'href': re.compile('^https://www.youtube.com')} )
         quote_array = fcl.find_char_loc(str(tag[0]), '"')
         start_snip = quote_array[8]
         end_snip = quote_array[9]
         tag = str(tag[0])
         tag = tag[start_snip+1:end_snip]
-        return tag
+        link_file = open("Link.txt", "a")
+        link_file.write(tag)
+        link_file.close()
