@@ -17,20 +17,11 @@ def main():
     #new_scrape = WebsiteScraper(url)
     #new_scrape.website_scraper()
     new_play_link = PlayLink()
-    t1 = threading.Thread(new_play_link.play_link(), daemon=True).start()
-    
-    """
-    new_play_link = PlayLink()
-    new_display = DisplayOutput()
-    # Plays the chords in the console window
-    new_display.display_output()
     # Gets the youtube link for the song you are playing (USE MULTIPROCESSING TO PLAY SONG AND CHORDS)
-    new_play_link.play_link()
-    """
-
+    thread_two = threading.Thread(new_play_link.play_link(), daemon=True).start()
 
 # Press ESC to exit code
-my_thread = threading.Thread(target=main, daemon=True).start()
+thread_one = threading.Thread(target=main, daemon=True).start()
 keyboard.wait("esc")
 sys.exit()
 

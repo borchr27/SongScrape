@@ -24,4 +24,5 @@ class PlayLink(threading.Thread):
         media.play()
         time.sleep(3)
         while True: 
-            t2 = threading.Thread(new_display.display_output(), daemon=True).start()
+            # Plays the chords in the console window
+            thread_three = threading.Thread(new_display.display_output(), daemon=True).start()
