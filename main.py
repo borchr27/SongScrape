@@ -8,6 +8,7 @@ import threading
 import sys
 from WebsiteScraper import WebsiteScraper
 from DisplayOutput import DisplayOutput
+from PlayLink import PlayLink
 
 def main():
     #url = input('Enter a chordify URL: \n')
@@ -15,9 +16,10 @@ def main():
     new_scrape = WebsiteScraper(url)
     new_scrape.website_scraper()
 
-    # Gets the youtube link for the song you are playing (CURRENTLY NOT GRABBING CORRECT LINK)
+    # Gets the youtube link for the song you are playing (USE MULTIPROCESSING TO PLAY SONG AND CHORDS)
     new_youtube_link = new_scrape.youtube_link()
-    print(new_youtube_link)
+    new_play_link = PlayLink()
+    new_play_link.play_link(new_youtube_link)
 
     # Plays the chords in the console window
     new_display = DisplayOutput()

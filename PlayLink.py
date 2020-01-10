@@ -1,15 +1,5 @@
-from selenium import webdriver
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.common.by import By
-from selenium.common.exceptions import TimeoutException
-import pandas as pd
-import requests 
-from bs4 import BeautifulSoup
-import re
-from selenium.webdriver.chrome.options import Options
-from datetime import date
-import time
+import vlc
+import pafy
 
 class PlayLink:
     """
@@ -19,6 +9,11 @@ class PlayLink:
         pass
         
     def play_link(self, link):
-        browser = webdriver.Chrome()
-        browser.get(link)
-
+        # Uses VLC and Pafy to play the video for the song you are playing!
+        url = link
+        video = pafy.new(url)
+        best = video.getbest()
+        media = vlc.MediaPlayer(best.url)
+        media.play()
+        while True: 
+            pass
