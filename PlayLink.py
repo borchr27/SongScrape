@@ -22,7 +22,7 @@ class PlayLink(threading.Thread):
         best = video.getbest()
         media = vlc.MediaPlayer(best.url)
         media.play()
-        time.sleep(3)
+        time.sleep(2.5)
         while True: 
             # Plays the chords in the console window
             thread_three = threading.Thread(new_display.display_output(), daemon=True).start()

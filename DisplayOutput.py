@@ -14,7 +14,7 @@ class DisplayOutput(threading.Thread):
         # Time.sleep value = tempo
         excel_file = 'chords.xlsx'
         data_frame = pd.read_excel(excel_file)
-        tempo = .5
+        tempo = .58947
         data_frame_length = len(data_frame['Chords'][:])
         i = 0
         y = '\t'
