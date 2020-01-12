@@ -3,6 +3,8 @@
 # selenium v 3.141.0
 # pandas v 0.23.4
 # urllib3 v 1.23
+# keyboard v ?
+
 import keyboard
 import threading
 import sys
@@ -12,15 +14,15 @@ from PlayLink import PlayLink
 
 
 def main():
-    #url = input('Enter a chordify URL: \n')
-    #url = 'https://chordify.net/chords/buffalo-springfield-for-what-its-worth-buttholesurferss'
-    #new_scrape = WebsiteScraper(url)
-    #new_scrape.website_scraper()
+    url = input('Enter a chordify URL: \n')
+    #url = 'https://chordify.net/chords/vance-joy-riptide-official-video-liberationmusicaus'
+    new_scrape = WebsiteScraper(url)
+    new_scrape.website_scraper()
     new_play_link = PlayLink()
-    # Gets the youtube link for the song you are playing (USE MULTIPROCESSING TO PLAY SONG AND CHORDS)
+    # Gets the youtube link for the song you are playing
     thread_two = threading.Thread(new_play_link.play_link(), daemon=True).start()
 
-# Press ESC to exit code
+# Thread allows us to exit program by pressing ESC
 thread_one = threading.Thread(target=main, daemon=True).start()
 keyboard.wait("esc")
 sys.exit()

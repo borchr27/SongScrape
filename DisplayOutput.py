@@ -10,12 +10,13 @@ class DisplayOutput(threading.Thread):
     def __init__(self):
         super(DisplayOutput, self).__init__()
 
-    def display_output(self):
-        # Time.sleep value = tempo
+    def display_output(self, video_length):
+        # Tempo = video length (s)/ len of items in chord file  
         excel_file = 'chords.xlsx'
         data_frame = pd.read_excel(excel_file)
-        tempo = .58947
         data_frame_length = len(data_frame['Chords'][:])
+        tempo = video_length / data_frame_length
+        print(video_length, data_frame_length)
         i = 0
         y = '\t'
         while (i < data_frame_length):

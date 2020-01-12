@@ -48,6 +48,6 @@ class WebsiteScraper:
         end_snip = quote_array[9]
         tag = str(tag[0])
         tag = tag[start_snip+1:end_snip]
-        link_file = open("Link.txt", "a")
+        link_file = open("YoutubeLink.txt", "w")
         link_file.write(tag)
         link_file.close()
