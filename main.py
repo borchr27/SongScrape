@@ -23,7 +23,7 @@ def main():
     thread_two = threading.Thread(new_play_link.play_link(), daemon=True).start()
 
 # Thread allows us to exit program by pressing ESC
-thread_one = threading.Thread(target=main, daemon=True).start()
+thread_one = threading.Thread(target=main, daemon=True).start() 
 keyboard.wait("esc")
 sys.exit()
 
