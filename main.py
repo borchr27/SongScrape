@@ -15,7 +15,7 @@ from PlayLink import PlayLink
 
 def main():
     url = input('Enter a chordify URL: \n')
-    #url = 'https://chordify.net/chords/vance-joy-riptide-official-video-liberationmusicaus'
+    #url = 'https://chordify.net/chords/buffalo-springfield-for-what-its-worth-good-sound-quality-circle2491'
     new_scrape = WebsiteScraper(url)
     new_scrape.website_scraper()
     new_play_link = PlayLink()
