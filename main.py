@@ -1,10 +1,4 @@
 # Environment: anaconda cloud borchr27/songscrape
-# bs4 v 4.6.3
-# selenium v 3.141.0
-# pandas v 0.23.4
-# urllib3 v 1.23
-# keyboard v ?
-
 import keyboard
 import threading
 import sys

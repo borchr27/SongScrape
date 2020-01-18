@@ -1,0 +1,9 @@
+Helpful tuts for structuring program:
+    CLASSES https://www.youtube.com/watch?v=m6hhUBXcA-E
+    CLASSES CONT https://www.youtube.com/watch?v=apACNr7DC_s
+    INIT/NAME METHODS https://www.youtube.com/watch?v=WIP3-woodlU
+    METHODS https://docs.quantifiedcode.com/python-anti-patterns/correctness/method_has_no_argument.html
+    METHODS https://www.python.org/dev/peps/pep-0008/#function-and-method-arguments
+    SELF AND SHARING VARIABLES https://stackoverflow.com/questions/7670415/python-3-sharing-variables-between-methods-in-a-class
+    HIT ESC TO EXIT https://stackoverflow.com/questions/56622170/how-to-use-the-esc-key-to-end-the-program-at-any-point-go-back-to-previous-men
+    THREADING https://www.youtube.com/watch?time_continue=1&v=5JSloPGocSY&feature=emb_logo
