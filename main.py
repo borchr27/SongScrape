@@ -17,22 +17,10 @@ def main():
     thread_two = threading.Thread(new_play_link.play_link(), daemon=True).start()
 
 # Thread allows us to exit program by pressing ESC
-thread_one = threading.Thread(target=main, daemon=True).start() 
-keyboard.wait("esc")
-sys.exit()
 
 if __name__ == "__main__":
     main()
 
-def notes():
-    # A funtion merely to hold and hide some of the notes and tuts that were used to build this program
-    pass
-    # Helpful tuts for structuring program:
-    # CLASSES https://www.youtube.com/watch?v=m6hhUBXcA-E
-    # CLASSES CONT https://www.youtube.com/watch?v=apACNr7DC_s
-    # INIT/NAME METHODS https://www.youtube.com/watch?v=WIP3-woodlU
-    # METHODS https://docs.quantifiedcode.com/python-anti-patterns/correctness/method_has_no_argument.html
-    # METHODS https://www.python.org/dev/peps/pep-0008/#function-and-method-arguments
-    # SELF AND SHARING VARIABLES https://stackoverflow.com/questions/7670415/python-3-sharing-variables-between-methods-in-a-class
-    # HIT ESC TO EXIT https://stackoverflow.com/questions/56622170/how-to-use-the-esc-key-to-end-the-program-at-any-point-go-back-to-previous-men
-    # THREADING https://www.youtube.com/watch?time_continue=1&v=5JSloPGocSY&feature=emb_logo
+thread_one = threading.Thread(target=main, daemon=True).start() 
+keyboard.wait("esc")
+sys.exit()
