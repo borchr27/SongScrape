@@ -25,7 +25,10 @@ class WebsiteScraper:
         search.clear()
         search.send_keys('Jimmy Buffet')
         search.send_keys(Keys.RETURN)
-        time.sleep(10)
+        time.sleep(5)
+        ratings = driver.find_element_by_link_text('^https://tabs.ultimate-guitar.com/tab')
+        print(ratings)
+
         
         driver.close()
 
