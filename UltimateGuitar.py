@@ -38,29 +38,13 @@ class WebsiteScraper:
         for description, ranking, link in zip(options[3:7], rankings[1:5], options[3:7]):
             link = link.find('a')
             choices = df.append(pd.Series([ranking.get_text(), description.get_text(), link.get('href')], index=df.columns ), ignore_index=True)
-  
-
-            #df = pd.DataFrame({"Rating": [ranking.get_text()], "Description": [description.get_text()], "Link": [link.get('href')]})
-            #choices.append(df, ignore_index=True)
         
-        for row in choices:
-            print(row.loc[0,:])
-            
-        """
-        for description in options[3:7]:
-            print(description.get_text())
-
-        for ranking in rankings[1:5]:
-            print(ranking.get_text())
-
-        for link in options[3:7]:
-            link = link.find('a')
-            print(link.get('href')) 
+        for row in choices.itertuples():
+            print(row)
         
-        for item in options:
-            self.soup.find_all('a')
-            print(link.get('href'))
-        """
+        # Need to sort data frame and then select / open link that has the highes ratings
+        # Scrape chords and lyrics from page
+
         driver.close()
 
 new = WebsiteScraper()
