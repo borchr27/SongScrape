@@ -29,7 +29,7 @@ class WebsiteScraper:
         browser.get(self.chordifyUrl)
         html = browser.page_source
         self.soup = BeautifulSoup(html, 'lxml')
-        chords = self.soup.find_all(class_='pZcWD')
+        chords = self.soup.find_all(class_='label-wrapper')
         data = []
         for chord in chords:
             chord_data = CreateSongData(str(chord))
