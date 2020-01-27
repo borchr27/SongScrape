@@ -21,14 +21,21 @@ class WebsiteScraper:
         # First block gets chord data, second block gets song youtube link
         driver = webdriver.Chrome()
         driver.get("https://www.ultimate-guitar.com/")
+        #driver.get('https://www.ultimate-guitar.com/search.php?search_type=title&value=STRING%20STRING')
         search = driver.find_element_by_name("value")
         search.clear()
-        search.send_keys('Jimmy Buffet')
+        search.send_keys('Jimmy Buffett Margaritaville')
         search.send_keys(Keys.RETURN)
         time.sleep(5)
-        ratings = driver.find_element_by_link_text('^https://tabs.ultimate-guitar.com/tab')
-        print(ratings)
-
+        html = driver.page_source
+        self.soup = BeautifulSoup(html, 'lxml')
+        options = self.soup.find_all(class_='pZcWD')
+        rankings = self.soup.find_all(class_='_31dWM')
+        
+        for option in options[3:7]:
+            print(option.get_text())
+        for ranking in rankings[1:5]:
+            print(ranking.get_text())
         
         driver.close()
 
