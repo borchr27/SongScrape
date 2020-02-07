@@ -44,6 +44,7 @@ class WebsiteScraper:
         
         # Need to sort data frame and then select / open link that has the highes ratings
         # Scrape chords and lyrics from page
+        # really need to hop back into this er mer gerug
 
         driver.close()
 
